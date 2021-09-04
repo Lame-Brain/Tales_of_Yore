@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed;
     public bool canMove;
+
+
+    public LayerMask moveLayerMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +18,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetAxisRaw("Vertical") > 0) transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
-        if (Input.GetAxisRaw("Vertical") < 0) transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
-        if (Input.GetAxisRaw("Horizontal") < 0) transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
-        if (Input.GetAxisRaw("Horizontal") > 0) transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-        */
-        if (Input.GetButtonUp("UpArrow")) Debug.Log("UP");
-        if (Input.GetButtonUp("RightArrow")) Debug.Log("RIGHT");
-        if (Input.GetButtonUp("DownArrow")) Debug.Log("DOWN");
-        if (Input.GetButtonUp("LeftArrow")) Debug.Log("LEFT");
+
+        if (Input.GetButtonUp("UpArrow")) Move(Vector2.up);
+        if (Input.GetButtonUp("RightArrow")) Move(Vector2.right);
+        if (Input.GetButtonUp("DownArrow")) Move(Vector2.down);
+        if (Input.GetButtonUp("LeftArrow")) Move(Vector2.left);
+
+    }
+
+    void Move(Vector2 dir)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1.0f, moveLayerMask);
+        if(hit.collider == null)
+        {
+            transform.Translate(dir);
+        }
     }
 }
