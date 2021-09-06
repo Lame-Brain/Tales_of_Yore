@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4120489738354747669}
   m_Layer: 8
   m_Name: rock
-  m_TagString: Blocker
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 2635867670957870403}
   m_Layer: 8
   m_Name: rock
-  m_TagString: Blocker
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 5078109730893583390}
   m_Layer: 0
   m_Name: Dirt
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1175298131216263423, guid: 6e5240988e3153040a3a540895e99ca4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.746, g: 0.746, b: 0.746, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
