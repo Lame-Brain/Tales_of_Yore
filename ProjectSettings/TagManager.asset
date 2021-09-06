@@ -8,6 +8,8 @@ TagManager:
   - NPC
   - Pickup
   - Blocker
+  - Tree
+  - Ground
   layers:
   - Default
   - TransparentFX

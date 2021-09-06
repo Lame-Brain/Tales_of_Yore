@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7316640276151161817}
   - component: {fileID: 107213412228133292}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Dirt
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,9 +92,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8287711700566120583}
   - component: {fileID: 7635200633180240137}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Blocker
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
