@@ -56,10 +56,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4ee2fe376c8844fb9101b9d62e42e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  northexit: 0
-  eastexit: 0
-  southexit: 0
-  westexit: 0
   northWall: {fileID: 7284945388224360184}
   northPass: {fileID: 7284945388756226946}
   eastWall: {fileID: 7284945387850710111}
@@ -68,31 +64,6 @@ MonoBehaviour:
   southPass: {fileID: 7284945387620673948}
   westWall: {fileID: 7284945388130679136}
   westPass: {fileID: 7284945388546173552}
-  rockPrefab: {fileID: 5826655932533880578, guid: 15dc3e252b38a944382b47bad8e0aa41, type: 3}
-  treePrefab:
-  - {fileID: 7284095321540028156, guid: d2c6e462c6b01d143a399fa9e78a9978, type: 3}
-  - {fileID: 8935169625736642970, guid: 5bc76dd1d2f84ba4facd8b210b38c2bb, type: 3}
-  - {fileID: 3900799076168740995, guid: fcb683b73ac410d45a42a905cfec40b5, type: 3}
-  - {fileID: 6185778450570628577, guid: 66e56089cb3df334788426ea0f9ca7cc, type: 3}
-  - {fileID: 4272130536542355580, guid: 3952cc704af2c194eb4ac2159044dc24, type: 3}
-  - {fileID: 2386923262417337193, guid: 24b24364c4563994f96bb2c57144f5e0, type: 3}
-  - {fileID: 7815640579186770213, guid: 51bb2f32cdbdbe94289e25ab1c9c095b, type: 3}
-  - {fileID: 3268750859426748056, guid: 38aad699977d0a146892826a374e7389, type: 3}
-  - {fileID: 3456777471457031789, guid: f6f1eeccd2ab78942aa972a565cbad8f, type: 3}
-  - {fileID: 2230972961285240269, guid: 64bbda323508655498628a5314c0ac1a, type: 3}
-  - {fileID: 6517168728074789498, guid: b22179167f1249f458f66e25ab1bde2a, type: 3}
-  - {fileID: 3261004425989876235, guid: b157cee9f2dda4a4bbf217620801a42f, type: 3}
-  groundPrefab:
-  - {fileID: 4292124055807925329, guid: 7f74530b9e10bf24287f70ad10a47f1b, type: 3}
-  - {fileID: 4864212944292678450, guid: 64061e678e45343499703b8a91d2e37e, type: 3}
-  - {fileID: 4390879488438301942, guid: 48edf10477f9d594bbb05b15f2439f49, type: 3}
-  - {fileID: 2354093289200602713, guid: 487101cb1477e3b46923474be1edfcc6, type: 3}
-  - {fileID: 1346829072575738169, guid: 8059650dad9dd574d85e507cb92010d0, type: 3}
-  - {fileID: 6296998007985865107, guid: 88052980878f918448e6b31fae926693, type: 3}
-  - {fileID: 6845176988465278986, guid: 7900a5779aba7b5458e4f474fcb9d1d9, type: 3}
-  - {fileID: 8123570082965870087, guid: abf242e5f55eac64fab569a7598c6baa, type: 3}
-  - {fileID: 6922674522307510465, guid: 656b3cf5f6444994f8b82b192cb8fa74, type: 3}
-  - {fileID: 59872008759029704, guid: 451a9b4ea8e5eb04c9c455e6e51df224, type: 3}
 --- !u!1 &7284945387620673948
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +79,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7284945387620673949
 Transform:
   m_ObjectHideFlags: 0
@@ -544,7 +515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7284945388546173553
 Transform:
   m_ObjectHideFlags: 0
@@ -580,7 +551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7284945388756226947
 Transform:
   m_ObjectHideFlags: 0
@@ -655,7 +626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7284945389331752260
 Transform:
   m_ObjectHideFlags: 0
