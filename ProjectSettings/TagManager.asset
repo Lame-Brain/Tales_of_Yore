@@ -10,6 +10,8 @@ TagManager:
   - Blocker
   - Tree
   - Ground
+  - Chest
+  - Sign
   layers:
   - Default
   - TransparentFX

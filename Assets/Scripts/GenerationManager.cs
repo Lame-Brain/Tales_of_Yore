@@ -9,13 +9,15 @@ public class GenerationManager : MonoBehaviour
     public int mapWidth = 11;
     public int mapHeight = 11;
     public int roomsToGenerate = 12;
+    public List<SpriteRenderer> treePrefab, groundPrefab;
+    public GameObject[] loot1, loot2, loot3, loot4;
 
     private int roomIndex;
     private bool roomsInstantiated;
 
     private Vector2 firstRoomPos;
     private bool[,] map;
-    public GameObject roomPrefab;
+    public GameObject roomPrefab, chestPrefab, dwarfPrefab, rangerPrefab, gnomePrefab, gemPrefab, signPrefab;
     private List<Room> roomObjects = new List<Room>();
 
     void Awake()
@@ -82,6 +84,7 @@ public class GenerationManager : MonoBehaviour
         if (roomsInstantiated)
             return;
 
+        //INSTANTIATE ROOM PREFABS
         roomsInstantiated = true;
         for(int _y = 0; _y < mapHeight; _y++)
             for(int _x = 0; _x < mapWidth; _x++)
@@ -96,7 +99,7 @@ public class GenerationManager : MonoBehaviour
                     room.northWall.SetActive(false);
                     room.northPass.SetActive(true);
                 }
-                if (_x > 0 && map[_x - 1, _y] == true)
+                if (_x < mapWidth - 1 && map[_x + 1, _y] == true)
                 {
                     room.eastWall.SetActive(false);
                     room.eastPass.SetActive(true);
@@ -106,19 +109,61 @@ public class GenerationManager : MonoBehaviour
                     room.southWall.SetActive(false);
                     room.southPass.SetActive(true);
                 }
-                if (_x < mapWidth - 1 && map[_x + 1, _y] == true)
+                if (_x > 0 && map[_x - 1, _y] == true)
                 {
                     room.westWall.SetActive(false);
                     room.westPass.SetActive(true);
                 }
-
                 roomObjects.Add(room);
             }
-        PlaceKeyObjects();        
+
+        //Randomize the Tiles
+        int _random = 0;
+        GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
+        foreach(GameObject _go in trees)
+        {
+            _random = Random.Range(0, treePrefab.Count);
+            _go.AddComponent<SpriteRenderer>();
+            _go.GetComponent<SpriteRenderer>().sprite = treePrefab[_random].sprite;            
+        }
+
+        GameObject[] ground = GameObject.FindGameObjectsWithTag("Ground");
+        foreach (GameObject _go in ground)
+        {
+            _random = Random.Range(0, groundPrefab.Count+50);
+            if (_random > groundPrefab.Count - 1) _random = 0;
+            _go.AddComponent<SpriteRenderer>();
+            _go.GetComponent<SpriteRenderer>().sprite = groundPrefab[_random].sprite;            
+        }
+
+        int _numChests = Random.Range(3, 9);
+        for(int i = 0; i < _numChests; i++ ) PlaceObject("Chest");
+        PlaceObject("Ranger");
+        PlaceObject("Dwarf");
+        PlaceObject("Gnome");
+        PlaceObject("Gem");
+        for (int i = 0; i < 3; i++) PlaceObject("Sign");
     }
 
-    void PlaceKeyObjects()
+    void PlaceObject(string n)
     {
-
+        Vector2 _pos, _basePos; RaycastHit2D hit; bool placed = false;
+        while (!placed)
+        {
+            _basePos = roomObjects[Random.Range(0, roomObjects.Count)].gameObject.transform.position;
+            _pos = new Vector2(_basePos.x + Random.Range(-5, 5), _basePos.y + Random.Range(-5, 5));
+            hit = Physics2D.Raycast(_pos, Vector2.zero, 0.5f);
+            if (!hit)
+            {
+                if (n == "Chest") Instantiate(chestPrefab, _pos, Quaternion.identity);
+                if (n == "Ranger") Instantiate(rangerPrefab, _pos, Quaternion.identity);
+                if (n == "Dwarf") Instantiate(dwarfPrefab, _pos, Quaternion.identity);
+                if (n == "Gnome") Instantiate(gnomePrefab, _pos, Quaternion.identity);
+                if (n == "Gem") Instantiate(gemPrefab, _pos, Quaternion.identity);
+                if (n == "Sign") Instantiate(signPrefab, _pos, Quaternion.identity);
+                placed = true;
+            }
+        }
     }
 }
+
