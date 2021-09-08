@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager GAME;
     public static int MAPWIDTH, MAPHEIGHT;
+    public static bool PAUSED;
 
     public bool poisoned, bleeding, manaUser, hasGem;
     public int ForestLevel, playerLevel, playerATK, playerDEF, numHP_pot, numMP_pot, num_Food, numPoison_pot, num_Bleed_pot;
@@ -21,5 +22,6 @@ public class GameManager : MonoBehaviour
 
         GAME = this;
         DontDestroyOnLoad(gameObject);
+        PAUSED = false;
     }
 }

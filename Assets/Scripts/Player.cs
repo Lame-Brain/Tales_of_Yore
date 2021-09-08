@@ -19,12 +19,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetButtonUp("UpArrow")) Move(Vector2.up);
-        if (Input.GetButtonUp("RightArrow")) Move(Vector2.right);
-        if (Input.GetButtonUp("DownArrow")) Move(Vector2.down);
-        if (Input.GetButtonUp("LeftArrow")) Move(Vector2.left);
-
+        if (GameManager.PAUSED) canMove = false;
+        if (canMove)
+        {
+            if (Input.GetButtonUp("UpArrow")) Move(Vector2.up);
+            if (Input.GetButtonUp("RightArrow")) Move(Vector2.right);
+            if (Input.GetButtonUp("DownArrow")) Move(Vector2.down);
+            if (Input.GetButtonUp("LeftArrow")) Move(Vector2.left);
+        }
     }
 
     void Move(Vector2 dir)

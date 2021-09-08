@@ -10,6 +10,14 @@ public class UI : MonoBehaviour
     public GameObject hpBar, mpBar, xpBar, foodBar;
     public TextMeshProUGUI Stats, numHP_pot, numMP_pot, num_Food, numPoison_pot, numBleed_pot;
 
+    public GameObject messagePanel;
+    public TextMeshProUGUI panelMessage;
+
+    private void Awake()
+    {
+        messagePanel.SetActive(false);
+    }
+
     private void Update()
     {
         Poison_Icon.SetActive(GameManager.GAME.poisoned);
@@ -30,5 +38,18 @@ public class UI : MonoBehaviour
         Stats.text = "LVL " + GameManager.GAME.playerLevel +
             " ATK: " + GameManager.GAME.playerATK +
             " DEF: " + GameManager.GAME.playerDEF;
+    }
+
+    public void OpenMessage(string s)
+    {
+        messagePanel.SetActive(true);
+        panelMessage.text = s;
+        GameManager.PAUSED = true;
+    }
+
+    public void CloseMessage()
+    {
+        messagePanel.SetActive(false);
+        GameManager.PAUSED = false;
     }
 }
