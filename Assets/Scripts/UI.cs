@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public GameObject Poison_Icon, Bleed_Icon, ManaPot_Icon, Poison_Pot_Icon, Bleed_Pot_Icon, Gem_Icon;
+    public GameObject skull, bone, book, candle;
     public GameObject hpBar, mpBar, xpBar, foodBar;
-    public TextMeshProUGUI Stats, numHP_pot, numMP_pot, num_Food, numPoison_pot, numBleed_pot;
+    public TextMeshProUGUI Stats, numHP_pot, numMP_pot, num_Food, numPoison_pot, numBleed_pot, goldAmount;
 
     public GameObject messagePanel;
     public TextMeshProUGUI panelMessage;
@@ -38,6 +39,16 @@ public class UI : MonoBehaviour
         Stats.text = "LVL " + GameManager.GAME.playerLevel +
             " ATK: " + GameManager.GAME.playerATK +
             " DEF: " + GameManager.GAME.playerDEF;
+        goldAmount.text = GameManager.GAME.gold + " gp";
+        skull.SetActive(GameManager.GAME.hasSkull);
+        bone.SetActive(GameManager.GAME.hasBone);
+        book.SetActive(GameManager.GAME.hasBook);
+        candle.SetActive(GameManager.GAME.hasCandle);
+
+        if(Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
+        {
+            if (messagePanel.activeSelf) CloseMessage();
+        }
     }
 
     public void OpenMessage(string s)

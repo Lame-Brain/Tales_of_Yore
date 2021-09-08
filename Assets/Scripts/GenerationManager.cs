@@ -142,7 +142,8 @@ public class GenerationManager : MonoBehaviour
         PlaceObject("Dwarf");
         PlaceObject("Gnome");
         PlaceObject("Gem");
-        for (int i = 0; i < 3; i++) PlaceObject("Sign");
+        if (GameManager.GAME.ForestLevel == 1) PlaceObject("Sign");
+        if (GameManager.GAME.ForestLevel > 1) for (int i = 0; i < 2; i++) PlaceObject("Sign");
     }
 
     void PlaceObject(string n)
@@ -150,18 +151,49 @@ public class GenerationManager : MonoBehaviour
         Vector2 _pos, _basePos; RaycastHit2D hit; bool placed = false;
         while (!placed)
         {
+            GameObject _go = null;
             _basePos = roomObjects[Random.Range(0, roomObjects.Count)].gameObject.transform.position;
             _pos = new Vector2(_basePos.x + Random.Range(-5, 5), _basePos.y + Random.Range(-5, 5));
             hit = Physics2D.Raycast(_pos, Vector2.zero, 0.5f);
             if (!hit)
             {
-                if (n == "Chest") Instantiate(chestPrefab, _pos, Quaternion.identity);
-                if (n == "Ranger") Instantiate(rangerPrefab, _pos, Quaternion.identity);
-                if (n == "Dwarf") Instantiate(dwarfPrefab, _pos, Quaternion.identity);
-                if (n == "Gnome") Instantiate(gnomePrefab, _pos, Quaternion.identity);
-                if (n == "Gem") Instantiate(gemPrefab, _pos, Quaternion.identity);
-                if (n == "Sign") Instantiate(signPrefab, _pos, Quaternion.identity);
+                if (n == "Chest") _go = Instantiate(chestPrefab, _pos, Quaternion.identity);
+                if (n == "Ranger") _go = Instantiate(rangerPrefab, _pos, Quaternion.identity);
+                if (n == "Dwarf") _go = Instantiate(dwarfPrefab, _pos, Quaternion.identity);
+                if (n == "Gnome") _go = Instantiate(gnomePrefab, _pos, Quaternion.identity);
+                if (n == "Gem") _go = Instantiate(gemPrefab, _pos, Quaternion.identity);
+                if (n == "Sign") _go = Instantiate(signPrefab, _pos, Quaternion.identity);
                 placed = true;
+            }
+
+            if(n == "Chest")
+            {
+                int _r = Random.Range(0, 7);
+                for(int _i = 0; _i < _r; _i++)
+                {                    
+                    /* level 1 (origin, loot level 1
+                     * level 2 loot level 1
+                     * level 3 loot level 1
+                     * level 4 loot level 1, boss 1 (ritual item 1)
+                     * level 5 loot level 2
+                     * level 6 loot level 2
+                     * level 7 loot level 2
+                     * level 8 loot level 2, boss 2 (ritual item 2)
+                     * level 9 loot level 3
+                     * level 10 loot level 3
+                     * level 11 loot level 3
+                     * level 12 loot level 3, boss 3 (ritual item 3)
+                     * level 13 loot level 4
+                     * level 15 loot level 4
+                     * level 16 loot level 4
+                     * level 17 loot level 4, boss 4 (ritual item 4)
+                     * level 18 Final Level (do the ritual, fight the BOSS)
+                     */
+                    if (GameManager.GAME.ForestLevel < 5) _go.GetComponent<Chest>().loot.Add(loot1[Random.Range(0, loot1.Length)]);
+                    if (GameManager.GAME.ForestLevel > 4 && GameManager.GAME.ForestLevel < 9) _go.GetComponent<Chest>().loot.Add(loot2[Random.Range(0, loot1.Length)]);
+                    if (GameManager.GAME.ForestLevel > 8 && GameManager.GAME.ForestLevel < 13) _go.GetComponent<Chest>().loot.Add(loot3[Random.Range(0, loot1.Length)]);
+                    if (GameManager.GAME.ForestLevel > 12) _go.GetComponent<Chest>().loot.Add(loot4[Random.Range(0, loot1.Length)]);
+                }
             }
         }
     }

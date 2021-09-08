@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.PAUSED) canMove = false;
+        canMove = !GameManager.PAUSED;
         if (canMove)
         {
             if (Input.GetButtonUp("UpArrow")) Move(Vector2.up);
@@ -32,9 +32,21 @@ public class Player : MonoBehaviour
     void Move(Vector2 dir)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1.0f, moveLayerMask);
-        if(hit.collider == null)
+        if(hit.collider == null) //Run into ground tile. (move)
         {
             transform.Translate(dir);
         }
+
+        if (hit.collider != null && hit.collider.CompareTag("Sign") && GameManager.GAME.hasGem == false) //Run into a sign with no gem
+        {
+            GameManager.GAME.UI.OpenMessage("This Sign Post is shrouded in Darkness.");
+        }
+
+
+        if (hit.collider != null && hit.collider.CompareTag("Chest"))
+        {
+            hit.collider.GetComponent<Chest>().PopTheChest();
+        }
+
     }
 }

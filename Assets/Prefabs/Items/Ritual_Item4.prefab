@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 195036083341686744}
   - component: {fileID: 190164900934951516}
   - component: {fileID: 1983611162757061357}
+  - component: {fileID: 3191387526983286334}
   m_Layer: 12
   m_Name: Ritual_Item4
   m_TagString: Pickup
@@ -109,3 +110,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &3191387526983286334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905044095903916875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c98287d33b8cd498cf4a49a88ce14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 11

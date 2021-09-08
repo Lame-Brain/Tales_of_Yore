@@ -15,7 +15,7 @@ public class Camera_Script : MonoBehaviour
         if (followPlayer && GameObject.FindGameObjectWithTag("Player") != null) 
         { 
             _targetPos.x = GameObject.FindGameObjectWithTag("Player").transform.position.x; 
-            _targetPos.y = GameObject.FindGameObjectWithTag("Player").transform.position.y;
+            _targetPos.y = GameObject.FindGameObjectWithTag("Player").transform.position.y - 1;
             _targetPos.z = -10;
         }
         else
