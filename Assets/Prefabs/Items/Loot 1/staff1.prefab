@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8003163178575336657}
   - component: {fileID: 8003163178575336658}
   m_Layer: 12
-  m_Name: Item
+  m_Name: Staff1_icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,3 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 20
+  min: 1
+  max: 6
+  value: 15

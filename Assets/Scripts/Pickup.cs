@@ -10,6 +10,7 @@ public class Pickup : MonoBehaviour
       amulet, armor_heavy, armor_light, axe, bow, dagger, robe, shield, staff, sword}
 
     public type itemType;
+    public int min, max, value;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

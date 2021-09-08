@@ -168,7 +168,7 @@ public class GenerationManager : MonoBehaviour
 
             if(n == "Chest")
             {
-                int _r = Random.Range(0, 7);
+                int _r = Random.Range(1, 5); int _randomLoot = 0;
                 for(int _i = 0; _i < _r; _i++)
                 {                    
                     /* level 1 (origin, loot level 1
@@ -188,11 +188,38 @@ public class GenerationManager : MonoBehaviour
                      * level 16 loot level 4
                      * level 17 loot level 4, boss 4 (ritual item 4)
                      * level 18 Final Level (do the ritual, fight the BOSS)
+                     * 
+                     * 10 chances for gold
+                     * 5 chances for an arrow                     
                      */
-                    if (GameManager.GAME.ForestLevel < 5) _go.GetComponent<Chest>().loot.Add(loot1[Random.Range(0, loot1.Length)]);
-                    if (GameManager.GAME.ForestLevel > 4 && GameManager.GAME.ForestLevel < 9) _go.GetComponent<Chest>().loot.Add(loot2[Random.Range(0, loot1.Length)]);
-                    if (GameManager.GAME.ForestLevel > 8 && GameManager.GAME.ForestLevel < 13) _go.GetComponent<Chest>().loot.Add(loot3[Random.Range(0, loot1.Length)]);
-                    if (GameManager.GAME.ForestLevel > 12) _go.GetComponent<Chest>().loot.Add(loot4[Random.Range(0, loot1.Length)]);
+                    if (GameManager.GAME.ForestLevel < 5)
+                    {
+                        _randomLoot = Random.Range(-15, loot1.Length);
+                        if (_randomLoot < 0) _randomLoot = 1;
+                        if (_randomLoot < -5) _randomLoot = 0;
+                        _go.GetComponent<Chest>().loot.Add(loot1[_randomLoot]);
+                    }
+                    if (GameManager.GAME.ForestLevel > 4 && GameManager.GAME.ForestLevel < 9)
+                    {
+                        _randomLoot = Random.Range(-15, loot2.Length);
+                        if (_randomLoot < 0) _randomLoot = 1;
+                        if (_randomLoot < -5) _randomLoot = 0;
+                        _go.GetComponent<Chest>().loot.Add(loot2[_randomLoot]);
+                    }
+                    if (GameManager.GAME.ForestLevel > 8 && GameManager.GAME.ForestLevel < 13)
+                    {
+                        _randomLoot = Random.Range(-15, loot3.Length);
+                        if (_randomLoot < 0) _randomLoot = 1;
+                        if (_randomLoot < -5) _randomLoot = 0;
+                        _go.GetComponent<Chest>().loot.Add(loot3[_randomLoot]);
+                    }
+                    if (GameManager.GAME.ForestLevel > 12)
+                    {
+                        _randomLoot = Random.Range(-15, loot4.Length);
+                        if (_randomLoot < 0) _randomLoot = 1;
+                        if (_randomLoot < -5) _randomLoot = 0;
+                        _go.GetComponent<Chest>().loot.Add(loot4[_randomLoot]);
+                    }
                 }
             }
         }

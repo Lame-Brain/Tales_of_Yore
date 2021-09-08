@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
 
     public UI UI;
 
-    public bool poisoned, bleeding, manaUser, hasGem, hasSkull, hasBone, hasBook, hasCandle;
-    public int ForestLevel, playerLevel, playerATK, playerDEF, numHP_pot, numMP_pot, num_Food, numPoison_pot, num_Bleed_pot, num_arrows, gold;
+    public bool poisoned, bleeding, manaUser, equippedSpell, equippedBow, hasGem, hasSkull, hasBone, hasBook, hasCandle;
+    public int isStunned = 0, attkMode = 0;
+    public int ForestLevel, playerLevel, numHP_pot, numMP_pot, num_Food, numPoison_pot, num_Bleed_pot, num_arrows, gold;
     public float playerHP, playerMP, playerFood, maxHP, maxMP, maxFood, playerXP, playerXPNNL, playerXPmod;
+    public GameObject equipped_weapon, equipped_armor, equipped_amulet, equipped_shield;
 
     private void Awake()
     {
