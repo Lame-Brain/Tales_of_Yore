@@ -18,22 +18,20 @@ public class GenerationManager : MonoBehaviour
     private Vector2 firstRoomPos;
     private bool[,] map;
     public GameObject roomPrefab, chestPrefab, dwarfPrefab, rangerPrefab, gnomePrefab, gemPrefab, signPrefab;
-    private List<Room> roomObjects = new List<Room>();
+    public List<Room> roomObjects = new List<Room>();
 
     void Awake()
     {
         instance = this;
     }
 
-    void Start()
-    {
-        Random.InitState(42);
-        Generate();
-    }
-
     public void Generate()
     {
         map = new bool[mapWidth, mapHeight];
+        for (int y = 0; y < mapHeight; y++) for (int x = 0; x < mapWidth; x++) map[x, y] = false;
+        roomsInstantiated = false;
+        roomIndex = 0;
+        roomObjects.Clear();
         CheckRoom(5, 5, 0, Vector2.zero, true);
         InstantiateRooms();
         FindObjectOfType<Player>().transform.position = firstRoomPos * 15;
@@ -51,7 +49,6 @@ public class GenerationManager : MonoBehaviour
             return;
 
         //OTHERWISE, Generate a room!
-
         if (firstRoom)// position origin room
         { 
             firstRoomPos = new Vector2(x, y);
@@ -82,7 +79,7 @@ public class GenerationManager : MonoBehaviour
     void InstantiateRooms()
     {
         if (roomsInstantiated)
-            return;
+            return;        
 
         //INSTANTIATE ROOM PREFABS
         roomsInstantiated = true;
@@ -90,6 +87,8 @@ public class GenerationManager : MonoBehaviour
             for(int _x = 0; _x < mapWidth; _x++)
             {
                 if (!map[_x, _y]) continue;
+
+                Debug.Log("Made it past the filter");
 
                 GameObject go = Instantiate(roomPrefab, new Vector3(_x, _y, 0) * 15, Quaternion.identity);
                 Room room = go.GetComponent<Room>();
@@ -115,6 +114,7 @@ public class GenerationManager : MonoBehaviour
                     room.westPass.SetActive(true);
                 }
                 roomObjects.Add(room);
+                Debug.Log("added " + room.name);
             }
 
         //Randomize the Tiles
@@ -123,7 +123,7 @@ public class GenerationManager : MonoBehaviour
         foreach(GameObject _go in trees)
         {
             _random = Random.Range(0, treePrefab.Count);
-            _go.AddComponent<SpriteRenderer>();
+            if (_go.GetComponent<SpriteRenderer>() == null) _go.AddComponent<SpriteRenderer>();
             _go.GetComponent<SpriteRenderer>().sprite = treePrefab[_random].sprite;            
         }
 
@@ -132,7 +132,7 @@ public class GenerationManager : MonoBehaviour
         {
             _random = Random.Range(0, groundPrefab.Count+50);
             if (_random > groundPrefab.Count - 1) _random = 0;
-            _go.AddComponent<SpriteRenderer>();
+            if(_go.GetComponent<SpriteRenderer>() == null) _go.AddComponent<SpriteRenderer>();
             _go.GetComponent<SpriteRenderer>().sprite = groundPrefab[_random].sprite;            
         }
 
@@ -142,8 +142,8 @@ public class GenerationManager : MonoBehaviour
         PlaceObject("Dwarf");
         PlaceObject("Gnome");
         PlaceObject("Gem");
-        if (GameManager.GAME.ForestLevel == 1) PlaceObject("Sign");
-        if (GameManager.GAME.ForestLevel > 1) for (int i = 0; i < 2; i++) PlaceObject("Sign");
+        if (GameManager.GAME.ForestLevel < 18) PlaceObject("FSign");
+        if (GameManager.GAME.ForestLevel > 1) PlaceObject("BSign");
     }
 
     void PlaceObject(string n)
@@ -162,36 +162,16 @@ public class GenerationManager : MonoBehaviour
                 if (n == "Dwarf") _go = Instantiate(dwarfPrefab, _pos, Quaternion.identity);
                 if (n == "Gnome") _go = Instantiate(gnomePrefab, _pos, Quaternion.identity);
                 if (n == "Gem") _go = Instantiate(gemPrefab, _pos, Quaternion.identity);
-                if (n == "Sign") _go = Instantiate(signPrefab, _pos, Quaternion.identity);
+                if (n == "FSign") _go = Instantiate(signPrefab, _pos, Quaternion.identity);
+                if (n == "BSign") _go = Instantiate(signPrefab, _pos, Quaternion.identity);
                 placed = true;
             }
-
+            
             if(n == "Chest")
             {
                 int _r = Random.Range(1, 5); int _randomLoot = 0;
                 for(int _i = 0; _i < _r; _i++)
                 {                    
-                    /* level 1 (origin, loot level 1
-                     * level 2 loot level 1
-                     * level 3 loot level 1
-                     * level 4 loot level 1, boss 1 (ritual item 1)
-                     * level 5 loot level 2
-                     * level 6 loot level 2
-                     * level 7 loot level 2
-                     * level 8 loot level 2, boss 2 (ritual item 2)
-                     * level 9 loot level 3
-                     * level 10 loot level 3
-                     * level 11 loot level 3
-                     * level 12 loot level 3, boss 3 (ritual item 3)
-                     * level 13 loot level 4
-                     * level 15 loot level 4
-                     * level 16 loot level 4
-                     * level 17 loot level 4, boss 4 (ritual item 4)
-                     * level 18 Final Level (do the ritual, fight the BOSS)
-                     * 
-                     * 10 chances for gold
-                     * 5 chances for an arrow                     
-                     */
                     if (GameManager.GAME.ForestLevel < 5)
                     {
                         _randomLoot = Random.Range(-15, loot1.Length);
@@ -222,6 +202,9 @@ public class GenerationManager : MonoBehaviour
                     }
                 }
             }
+
+            if (n == "FSign") _go.GetComponent<Sign>().destination = GameManager.GAME.ForestLevel + 1;
+            if (n == "BSign") _go.GetComponent<Sign>().destination = GameManager.GAME.ForestLevel - 1;
         }
     }
 }

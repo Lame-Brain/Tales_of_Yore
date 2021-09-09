@@ -11,13 +11,12 @@ public class UI : MonoBehaviour
     public GameObject hpBar, mpBar, xpBar, foodBar;
     public TextMeshProUGUI Stats, numHP_pot, numMP_pot, num_Food, numPoison_pot, numBleed_pot, goldAmount, attack_string, ammo_string;
     public Image attack_icon;
-    public GameObject messagePanel, attack_text_panel, ammo_text_panel, replaceMessagePanel;
-    public TextMeshProUGUI panelMessage, panelMessage_replace;
+    public GameObject messagePanel, attack_text_panel, ammo_text_panel, replaceMessagePanel, travelMessagePanel;
+    public TextMeshProUGUI panelMessage, panelMessage_replace, panelMessage_travel;
 
     private void Awake()
     {
-        messagePanel.SetActive(false);
-        replaceMessagePanel.SetActive(false);
+        CloseMessage();
     }
 
     private void Update()
@@ -63,7 +62,7 @@ public class UI : MonoBehaviour
         if (GameManager.GAME.attkMode == 0)
         {
             attack_icon.sprite = GameManager.GAME.equipped_melee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
-            attack_string.text = "Atk: " + GameManager.GAME.equipped_melee.GetComponent<Pickup>().min + "-" + GameManager.GAME.equipped_melee.GetComponent<Pickup>().max;
+            attack_string.text = GameManager.GAME.equipped_melee.GetComponent<Pickup>().itemName + "\nAtk: " + GameManager.GAME.equipped_melee.GetComponent<Pickup>().min + "-" + GameManager.GAME.equipped_melee.GetComponent<Pickup>().max;
             ammo_text_panel.SetActive(false);
         }
         if (GameManager.GAME.attkMode == 1 && GameManager.GAME.equipped_bow != null)
@@ -101,10 +100,18 @@ public class UI : MonoBehaviour
         GameManager.PAUSED = true;
     }
 
+    public void OpenTravelMessage(string s)
+    {
+        travelMessagePanel.SetActive(true);
+        panelMessage_travel.text = s;
+        GameManager.PAUSED = true;
+    }
+
     public void CloseMessage()
     {
         messagePanel.SetActive(false);
         replaceMessagePanel.SetActive(false);
+        travelMessagePanel.SetActive(false);
         GameManager.PAUSED = false;
     }
 

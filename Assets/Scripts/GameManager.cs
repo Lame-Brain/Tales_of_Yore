@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static bool PAUSED;
 
     public UI UI;
+    public GenerationManager GenManager;
 
     public bool poisoned, bleeding, manaUser, hasSkull, hasBone, hasBook, hasCandle;
     public bool[] hasGem;
@@ -76,6 +77,18 @@ public class GameManager : MonoBehaviour
 
     public void ReplaceEquip()
     {
+        GameObject _leftBehind = null;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.amulet) _leftBehind = equipped_amulet;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.armor_heavy) _leftBehind = equipped_armor;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.armor_light) _leftBehind = equipped_armor;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.robe) _leftBehind = equipped_armor;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.shield) _leftBehind = equipped_shield;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.axe) _leftBehind = equipped_melee;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.bow) _leftBehind = equipped_bow;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.dagger) _leftBehind = equipped_melee;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.staff) _leftBehind = equipped_melee;
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.sword) _leftBehind = equipped_melee;
+
         if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.amulet) equipped_amulet = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
         if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.armor_heavy) equipped_armor = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
         if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.armor_light) equipped_armor = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
@@ -86,7 +99,22 @@ public class GameManager : MonoBehaviour
         if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.dagger) equipped_melee = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
         if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.staff) equipped_melee = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
         if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.sword) equipped_melee = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
-        Destroy(focus_item);
+
+        focus_item.GetComponentInChildren<SpriteRenderer>().sprite = _leftBehind.GetComponentInChildren<SpriteRenderer>().sprite;
+        focus_item.GetComponent<Pickup>().itemName = _leftBehind.GetComponent<Pickup>().itemName;
+        focus_item.GetComponent<Pickup>().min = _leftBehind.GetComponent<Pickup>().min;
+        focus_item.GetComponent<Pickup>().max = _leftBehind.GetComponent<Pickup>().max;
+        focus_item.GetComponent<Pickup>().value = _leftBehind.GetComponent<Pickup>().value;
+        UI.CloseMessage();
+    }
+
+    public void TravelToAnotherMap()
+    {
+        if(focus_item.GetComponent<Sign>() != null) ForestLevel = focus_item.GetComponent<Sign>().destination;
+        if (focus_item.GetComponent<Sign>() == null) ForestLevel = 0;
+        focus_item = null;
+        //StartCoroutine(WaitforLevelToLoadToLoadNextLevel());
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         UI.CloseMessage();
     }
 }
