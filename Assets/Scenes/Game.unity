@@ -3339,11 +3339,11 @@ MonoBehaviour:
   poisoned: 0
   bleeding: 0
   manaUser: 1
-  hasGem: 0
   hasSkull: 0
   hasBone: 0
   hasBook: 0
   hasCandle: 0
+  hasGem: 
   isStunned: 0
   attkMode: 0
   ForestLevel: 1

@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     public bool poisoned, bleeding, manaUser, hasSkull, hasBone, hasBook, hasCandle;
     public bool[] hasGem;
-    public string[] levelName;
     public int isStunned = 0, attkMode = 0;
     public int ForestLevel, playerLevel, numHP_pot, numMP_pot, num_Food, numPoison_pot, num_Bleed_pot, num_arrows, gold;
     public float playerHP, playerMP, playerFood, maxHP, maxMP, maxFood, playerXP, playerXPNNL, playerXPmod;
