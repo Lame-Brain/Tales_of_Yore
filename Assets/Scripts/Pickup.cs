@@ -52,6 +52,106 @@ public class Pickup : MonoBehaviour
                 GameManager.GAME.numPoison_pot++;
                 Destroy(gameObject);
             }
+            if (itemType == type.amulet)
+            {
+                GameManager.GAME.focus_item = this.gameObject; //log the item for further operations
+
+                if (GameManager.GAME.equipped_amulet != null) //is an amulet already equipped?
+                {
+                    GameManager.GAME.UI.OpenReplaceMessage(GameManager.GAME.equipped_amulet.GetComponent<Pickup>().itemName + "(" +
+                        GameManager.GAME.equipped_amulet.GetComponent<Pickup>().min + ", " +
+                        GameManager.GAME.equipped_amulet.GetComponent<Pickup>().max +
+                        ") is currently equipped. Replace it with " + this.itemName +
+                        "(" + min + ", " + max + ")?");
+                }
+                else
+                {
+                    GameManager.GAME.equipped_amulet = Instantiate(this.gameObject, new Vector3(0, 0, -100), Quaternion.identity);
+                    Destroy(gameObject);
+                }
+            }
+
+            if (itemType == type.armor_heavy || itemType == type.armor_light || itemType == type.robe)
+            {
+                GameManager.GAME.focus_item = this.gameObject; //log the item for further operations
+
+                if (GameManager.GAME.equipped_armor != null) //is armor already equipped?
+                {
+                    GameManager.GAME.UI.OpenReplaceMessage(GameManager.GAME.equipped_armor.GetComponent<Pickup>().itemName + "(" +
+                        GameManager.GAME.equipped_armor.GetComponent<Pickup>().min + ", " +
+                        GameManager.GAME.equipped_armor.GetComponent<Pickup>().max +
+                        ") is currently equipped. Replace it with " + this.itemName +
+                        "(" + min + ", " + max + ")?");
+                }
+                else
+                {
+                    GameManager.GAME.equipped_armor = Instantiate(this.gameObject, new Vector3(0, 0, -100), Quaternion.identity);
+                    Destroy(gameObject);
+                }
+            }
+
+            if (itemType == type.shield)
+            {
+                GameManager.GAME.focus_item = this.gameObject; //log the item for further operations
+
+                if (GameManager.GAME.equipped_shield != null) //is a shield already equipped?
+                {
+                    GameManager.GAME.UI.OpenReplaceMessage(GameManager.GAME.equipped_shield.GetComponent<Pickup>().itemName + "(" +
+                        GameManager.GAME.equipped_shield.GetComponent<Pickup>().min + ", " +
+                        GameManager.GAME.equipped_shield.GetComponent<Pickup>().max +
+                        ") is currently equipped. Replace it with " + this.itemName +
+                        "(" + min + ", " + max + ")?");
+                }
+                else
+                {
+                    GameManager.GAME.equipped_shield = Instantiate(this.gameObject, new Vector3(0, 0, -100), Quaternion.identity);
+                    Destroy(gameObject);
+                }
+            }
+
+            if (itemType == type.axe || itemType == type.dagger || itemType == type.staff || itemType == type.sword)
+            {
+                GameManager.GAME.focus_item = this.gameObject; //log the item for further operations
+
+                if (GameManager.GAME.equipped_melee != null) //is a weapon already equipped?
+                {
+                    GameManager.GAME.UI.OpenReplaceMessage(GameManager.GAME.equipped_melee.GetComponent<Pickup>().itemName + "(" +
+                        GameManager.GAME.equipped_melee.GetComponent<Pickup>().min + ", " +
+                        GameManager.GAME.equipped_melee.GetComponent<Pickup>().max +
+                        ") is currently equipped. Replace it with " + this.itemName +
+                        "(" + min + ", " + max + ")?");
+                }
+                else
+                {
+                    GameManager.GAME.equipped_melee = Instantiate(this.gameObject, new Vector3(0, 0, -100), Quaternion.identity);
+                    Destroy(gameObject);
+                }
+            }
+
+            if (itemType == type.bow)
+            {
+                GameManager.GAME.focus_item = this.gameObject; //log the item for further operations
+
+                if (GameManager.GAME.equipped_bow != null) //is a bow already equipped?
+                {
+                    GameManager.GAME.UI.OpenReplaceMessage(GameManager.GAME.equipped_bow.GetComponent<Pickup>().itemName + "(" +
+                        GameManager.GAME.equipped_bow.GetComponent<Pickup>().min + ", " +
+                        GameManager.GAME.equipped_bow.GetComponent<Pickup>().max +
+                        ") is currently equipped. Replace it with " + this.itemName +
+                        "(" + min + ", " + max + ")?");
+                }
+                else
+                {
+                    GameManager.GAME.equipped_bow = Instantiate(this.gameObject, new Vector3(0, 0, -100), Quaternion.identity);
+                    Destroy(gameObject);
+                }
+            }
+
+            if(itemType == type.gem_of_sight)
+            {
+                Destroy(gameObject);
+                GameManager.GAME.hasGem[GameManager.GAME.ForestLevel] = true;
+            }
         }
     }
 }

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 23222685}
   - component: {fileID: 23222687}
   - component: {fileID: 23222686}
+  - component: {fileID: 23222688}
   m_Layer: 5
   m_Name: ManaPotion_Icon
   m_TagString: Untagged
@@ -200,6 +201,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23222684}
   m_CullTransparentMesh: 1
+--- !u!114 &23222688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23222684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 970661916}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Drink_Potion
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: MP
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &90322180
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1022,7 @@ GameObject:
   - component: {fileID: 260142614}
   - component: {fileID: 260142616}
   - component: {fileID: 260142615}
+  - component: {fileID: 260142617}
   m_Layer: 5
   m_Name: Bleed_Potions_icon
   m_TagString: Untagged
@@ -1057,6 +1088,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260142613}
   m_CullTransparentMesh: 1
+--- !u!114 &260142617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260142613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 970661916}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Drink_Potion
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Bleed
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &269474985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,7 +1556,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 523548389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1976563018}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: CloseMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &523548389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1767,7 +1839,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 602083160}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 970661916}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReplaceEquip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &602083160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2722,6 +2806,7 @@ GameObject:
   - component: {fileID: 845692364}
   - component: {fileID: 845692366}
   - component: {fileID: 845692365}
+  - component: {fileID: 845692367}
   m_Layer: 5
   m_Name: Poison_Potions_Icon
   m_TagString: Untagged
@@ -2787,6 +2872,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845692363}
   m_CullTransparentMesh: 1
+--- !u!114 &845692367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845692363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 970661916}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Drink_Potion
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Poison
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &845700865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3250,12 +3364,13 @@ MonoBehaviour:
   playerXP: 0
   playerXPNNL: 10
   playerXPmod: 2.5
-  equipped_melee: {fileID: 8003163178689511795, guid: e8c411a205d256041b4ebd7b1b5ea9cf, type: 3}
-  equipped_bow: {fileID: 0}
+  equipped_melee: {fileID: 3139959006278056115, guid: b4cd626998b8d774b80fe42ea8cdc0a1, type: 3}
+  equipped_bow: {fileID: 6675827244223114935, guid: 7802e4f3d037855438849cd304c4d38a, type: 3}
   equipped_spell: {fileID: 0}
-  equipped_armor: {fileID: 3944833918742541978, guid: 928014906d4bf924c89abd3695ea5f0b, type: 3}
-  equipped_amulet: {fileID: 2164630827271623240, guid: 5ee58f05c04672d4987972cc6544c3e9, type: 3}
-  equipped_shield: {fileID: 6845079863696396695, guid: 88727abaa1d88d347baf6dcf2fe620b9, type: 3}
+  equipped_armor: {fileID: 5383030884091309534, guid: 0ae7ab65e40767f4bae4c2c31c56d2f8, type: 3}
+  equipped_amulet: {fileID: 2563874635379701711, guid: d23e86b1a341f814f82546d3c0208b87, type: 3}
+  equipped_shield: {fileID: 6399820804176818135, guid: 786beaa858e93e94492f5f833f3ea82f, type: 3}
+  focus_item: {fileID: 0}
 --- !u!114 &970661917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3611,8 +3726,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 21
+  m_fontSizeBase: 21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3691,6 +3806,7 @@ GameObject:
   - component: {fileID: 1207047613}
   - component: {fileID: 1207047615}
   - component: {fileID: 1207047614}
+  - component: {fileID: 1207047616}
   m_Layer: 5
   m_Name: HealthPotion_Icon
   m_TagString: Untagged
@@ -3757,6 +3873,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207047612}
   m_CullTransparentMesh: 1
+--- !u!114 &1207047616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207047612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 970661916}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Drink_Potion
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: HP
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1229950009
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,6 +6182,7 @@ GameObject:
   - component: {fileID: 2112373388}
   - component: {fileID: 2112373390}
   - component: {fileID: 2112373389}
+  - component: {fileID: 2112373391}
   m_Layer: 5
   m_Name: Food_Icon
   m_TagString: Untagged
@@ -6103,6 +6249,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112373387}
   m_CullTransparentMesh: 1
+--- !u!114 &2112373391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112373387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 970661916}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: Drink_Potion
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Food
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2126519462
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class UI : MonoBehaviour
         ManaPot_Icon.SetActive(GameManager.GAME.manaUser);
         Poison_Pot_Icon.SetActive(GameManager.GAME.numPoison_pot > 0);
         Bleed_Pot_Icon.SetActive(GameManager.GAME.num_Bleed_pot > 0);
-        Gem_Icon.SetActive(GameManager.GAME.hasGem);
+        Gem_Icon.SetActive(GameManager.GAME.hasGem[GameManager.GAME.ForestLevel]);
         hpBar.GetComponent<Image>().fillAmount = GameManager.GAME.playerHP / GameManager.GAME.maxHP;
         mpBar.GetComponent<Image>().fillAmount = GameManager.GAME.playerMP / GameManager.GAME.maxMP;
         foodBar.GetComponent<Image>().fillAmount = GameManager.GAME.playerFood / GameManager.GAME.maxFood;

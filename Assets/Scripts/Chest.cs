@@ -11,7 +11,8 @@ public class Chest : MonoBehaviour
         Vector2 _pos, _targetPos; RaycastHit2D hit; bool placed = false;        
         _pos = this.transform.position; _targetPos = Vector2.zero;
         
-        Instantiate(loot[0], transform.position, Quaternion.identity); //Place the first treasure where the chest was
+        GameObject _go = Instantiate(loot[0], transform.position, Quaternion.identity); //Place the first treasure where the chest was
+        _go.name = "item_from_chest";
 
         for (int _i = 1; _i < loot.Count; _i++)
         {
@@ -40,7 +41,8 @@ public class Chest : MonoBehaviour
             }
 
             if (!placed) _targetPos = transform.position;
-            Instantiate(loot[_i], _targetPos, Quaternion.identity); //Place the rest of the treasure            
+            GameObject _gmob = Instantiate(loot[_i], _targetPos, Quaternion.identity); //Place the rest of the treasure            
+            _gmob.name = "item_from_chest";
         }
         Destroy(this.gameObject);
     }    

@@ -37,9 +37,13 @@ public class Player : MonoBehaviour
             transform.Translate(dir);
         }
 
-        if (hit.collider != null && hit.collider.CompareTag("Sign") && GameManager.GAME.hasGem == false) //Run into a sign with no gem
+        if (hit.collider != null && hit.collider.CompareTag("Sign") && GameManager.GAME.hasGem[GameManager.GAME.ForestLevel] == false) //Run into a sign with no gem
         {
             GameManager.GAME.UI.OpenMessage("This Sign Post is shrouded in Darkness.");
+        }
+        if (hit.collider != null && hit.collider.CompareTag("Sign") && GameManager.GAME.hasGem[GameManager.GAME.ForestLevel] == true) //Run into a sign with the gem for this level
+        {
+            GameManager.GAME.UI.OpenMessage("The Gem reveals the sign to you, showing you a way forward.");
         }
 
 

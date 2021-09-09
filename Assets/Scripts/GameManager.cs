@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
 
     public UI UI;
 
-    public bool poisoned, bleeding, manaUser, hasGem, hasSkull, hasBone, hasBook, hasCandle;
+    public bool poisoned, bleeding, manaUser, hasSkull, hasBone, hasBook, hasCandle;
+    public bool[] hasGem;
+    public string[] levelName;
     public int isStunned = 0, attkMode = 0;
     public int ForestLevel, playerLevel, numHP_pot, numMP_pot, num_Food, numPoison_pot, num_Bleed_pot, num_arrows, gold;
     public float playerHP, playerMP, playerFood, maxHP, maxMP, maxFood, playerXP, playerXPNNL, playerXPmod;
-    public GameObject equipped_melee, equipped_bow, equipped_spell, equipped_armor, equipped_amulet, equipped_shield;
+    public GameObject equipped_melee, equipped_bow, equipped_spell, equipped_armor, equipped_amulet, equipped_shield, focus_item;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
         GAME = this;
         DontDestroyOnLoad(gameObject);
         PAUSED = false;
+        hasGem = new bool[20]; for (int i = 0; i < 20; i++) hasGem[i] = false;
     }
 
     public void SwitchAttackMode()
@@ -70,5 +73,21 @@ public class GameManager : MonoBehaviour
                 if (playerFood > maxFood) playerFood = maxFood;
             }
         }
+    }
+
+    public void ReplaceEquip()
+    {
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.amulet) equipped_amulet = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.armor_heavy) equipped_armor = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.armor_light) equipped_armor = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.robe) equipped_armor = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.shield) equipped_shield = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.axe) equipped_melee = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.bow) equipped_bow = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.dagger) equipped_melee = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.staff) equipped_melee = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        if (focus_item.GetComponent<Pickup>().itemType == Pickup.type.sword) equipped_melee = Instantiate(focus_item, new Vector3(0, 0, -100), Quaternion.identity);
+        Destroy(focus_item);
+        UI.CloseMessage();
     }
 }

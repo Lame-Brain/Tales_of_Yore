@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 7
+  itemName: GEM OF SIGHT
+  min: 0
+  max: 0
+  value: 0
 --- !u!1 &6372439585873291255
 GameObject:
   m_ObjectHideFlags: 0
