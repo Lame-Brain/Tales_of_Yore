@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 19
+  itemName: Wooden Shield
+  min: 7
+  max: 0
+  value: 60
 --- !u!1 &3876955000569099178
 GameObject:
   m_ObjectHideFlags: 0

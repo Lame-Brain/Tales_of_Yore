@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 15
+  itemName: Cleaver Axe
+  min: 6
+  max: 10
+  value: 150

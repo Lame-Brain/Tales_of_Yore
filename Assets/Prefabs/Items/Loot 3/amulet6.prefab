@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 12
+  itemName: Emerald Amulet
+  min: 0
+  max: 11
+  value: 250
 --- !u!1 &6252986254281245722
 GameObject:
   m_ObjectHideFlags: 0

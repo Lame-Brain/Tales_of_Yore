@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 15
+  itemName: Axe
+  min: 2
+  max: 6
+  value: 15
 --- !u!1 &4022881148746169575
 GameObject:
   m_ObjectHideFlags: 0

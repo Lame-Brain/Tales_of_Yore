@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 21
+  itemName: Short Sword
+  min: 1
+  max: 8
+  value: 15
 --- !u!1 &9026737873313403661
 GameObject:
   m_ObjectHideFlags: 0

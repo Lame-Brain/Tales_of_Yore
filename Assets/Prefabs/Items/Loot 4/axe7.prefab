@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 15
+  itemName: Mighty Axe
+  min: 8
+  max: 14
+  value: 500
 --- !u!1 &8801397003011774200
 GameObject:
   m_ObjectHideFlags: 0

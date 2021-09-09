@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 16
+  itemName: Ashraii Bow
+  min: 4
+  max: 18
+  value: 750
 --- !u!1 &5568218300304658666
 GameObject:
   m_ObjectHideFlags: 0

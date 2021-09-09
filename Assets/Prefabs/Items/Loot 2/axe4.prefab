@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 15
+  itemName: Deadly Axe
+  min: 5
+  max: 9
+  value: 90
 --- !u!1 &2835067158154905777
 GameObject:
   m_ObjectHideFlags: 0

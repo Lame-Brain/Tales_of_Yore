@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 21
+  itemName: Long Sword
+  min: 2
+  max: 8
+  value: 30

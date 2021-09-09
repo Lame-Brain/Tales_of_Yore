@@ -1,0 +1,41 @@
+Type,Name,Min,Max,value,,Type,Name,AC,Dodge,Value,,Type,Name,Min/AC,Max/Dodge,Value
+Axe 1,Axe,2,6,15,,Amulet 1,Silver Amulet,2,3,30,,Amulet,SHIELD AMULET,25,0,2000
+Axe 2,Double Axe,3,7,30,,Amulet 2,Gold Amulet,3,4,60,,Amulet,LUCK AMULET,0,25,2000
+Axe 3,Battle Axe,4,8,60,,Amulet 3,Platinum Amulet,0,5,90,,Light Armor,MITHRIL COAT,10,15,2500
+Axe 4,Deadly Axe,5,9,90,,Amulet 4,Ruby Amulet,0,7,120,,Heavy Armor,PALADIN ARMS,15,10,3000
+Axe 5,Cleaver Axe,6,10,150,,Amulet 5,Holy Amulet,0,9,170,,Dagger,NIGHTBRINGER,10,20,3000
+Axe 6,Destroyer Axe,7,12,300,,Amulet 6,Emerald Amulet,0,11,250,,Axe,GOLDEN AXE,20,25,1989
+Axe 7,Mighty Axe,8,14,500,,Amulet 7,Sapphire Amulet,0,13,500,,Bow,HEARTSEEKER,10,20,5000
+Axe 8,Great Axe,9,16,750,,Amulet 8,Diamond Amulet,0,15,750,,Staff,CADUCEUS,9,20,3000
+Bow 1,Ash Bow,1,4,15,,Armor_heavy 1,Banded Armor,5,0,50,,Sword,AVENGER,15,30,1995
+Bow 2,Elm Bow,2,6,35,,Armor_heavy 2,Plate Mail,6,0,75,,Robe,TARNKAPPE,0,50,7500
+Bow 3,Oaken Bow,4,8,65,,Armor_heavy 3,Half Plate,8,0,125,,Shield,AEGIS,50,0,7500
+Bow 4,Holly Bow,2,10,120,,Armor_heavy 4,Full Plate,10,0,250,,,,,,
+Bow 5,Yew Bow,5,12,240,,Armor_Light 1,Studded Leather,0,5,50,,Spell 1,Mage Blast,1,6,50
+Bow 6,Black Bow,3,14,350,,Armor_Light 2,Chain Mail,0,6,75,,Spell 2,Fire Bolt,2,7,100
+Bow 7,Great Bow,2,16,500,,Armor_Light 3,Ring Mail,0,8,125,,Spell 3,Frost Blast,3,8,150
+Bow 8,Ashraii Bow,4,18,750,,Armor_Light 4,Scale Mail,0,10,250,,Spell 4,Poison Splash,-10,10,200
+Dagger 1,Knife,1,2,10,,Robe 1,Caster Robe,0,2,15,,Spell 5,Mage Missile,1,8,250
+Dagger 2,Long Knife,1,4,25,,Robe 2,Journeyman Robe,0,4,30,,Spell 6,Fireball,2,9,300
+Dagger 3,Iron Dagger,2,4,55,,Robe 3,Master Robe,0,6,45,,Spell 7,Blizzard,3,11,350
+Dagger 4,Steel Dagger,2,6,115,,Robe 4,Ornate Robe,5,5,60,,Spell 8,Death Bolt,10,50,666
+Dagger 5,Ebony Dagger,2,8,235,,Shield 1,Buckler,3,2,15,,,,,,
+Dagger 6,Hex Dagger,6,12,326,,Shield 2,Targ,4,3,30,,,,,,
+Dagger 7,Stiletto,1,15,450,,Shield 3,Wooden Shield,5,0,45,,,,,,
+Dagger 8,Sword Breaker,4,8,650,,Shield 4,Round Shield,7,0,60,,,,,,
+Staff 1,Shepherd Crook,1,2,10,,Shield 5,Aspis,9,0,85,,,,,,
+Staff 2,Arcane Staff,1,3,15,,Shield 6,Scutum,11,0,125,,,,,,
+Staff 3,Wizard Stick,1,4,20,,Shield 7,Heater,13,0,250,,,,,,
+Staff 4,Sorcerer Rod,1,5,25,,Shield 8,Pravise,15,0,375,,,,,,
+Staff 5,Enchanted Staff,1,6,30,,,,,,,,,,,,
+Staff 6,Warlock Walking Stick,1,7,35,,,,,,,,,,,,
+Staff 7,Diviner's Rod,1,8,40,,,,,,,,,,,,
+Staff 8,Spell Rod,4,6,50,,,,,,,,,,,,
+Sword 1,Short Sword,1,8,15,,,,,,,,,,,,
+Sword 2,Long Sword,2,8,30,,,,,,,,,,,,
+Sword 3,Rapier,3,8,60,,,,,,,,,,,,
+Sword 4,Bastard Sword,1,10,90,,,,,,,,,,,,
+Sword 5,Flambard,1,12,150,,,,,,,,,,,,
+Sword 6,Broadsword,2,12,300,,,,,,,,,,,,
+Sword 7,Claymore,4,15,500,,,,,,,,,,,,
+Sword 8,Great Sword,5,20,750,,,,,,,,,,,,

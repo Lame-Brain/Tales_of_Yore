@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 16
+  itemName: Oaken Bow
+  min: 4
+  max: 8
+  value: 65

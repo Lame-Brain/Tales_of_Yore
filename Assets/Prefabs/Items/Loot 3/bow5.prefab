@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 16
+  itemName: Yew Bow
+  min: 5
+  max: 12
+  value: 240
 --- !u!1 &5568218300304658666
 GameObject:
   m_ObjectHideFlags: 0

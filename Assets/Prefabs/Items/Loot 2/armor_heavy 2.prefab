@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 13
+  itemName: Plate Mail
+  min: 6
+  max: 0
+  value: 75

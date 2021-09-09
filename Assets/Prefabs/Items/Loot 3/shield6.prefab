@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 19
+  itemName: Scutum
+  min: 11
+  max: 0
+  value: 125

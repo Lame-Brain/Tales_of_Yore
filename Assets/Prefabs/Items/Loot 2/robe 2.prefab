@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 18
+  itemName: Journeyman Robe
+  min: 0
+  max: 4
+  value: 30

@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 21
+  itemName: Flambard
+  min: 1
+  max: 12
+  value: 150

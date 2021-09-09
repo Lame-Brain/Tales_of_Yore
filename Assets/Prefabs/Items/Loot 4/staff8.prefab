@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 20
+  itemName: Spell Rod
+  min: 4
+  max: 6
+  value: 50
 --- !u!1 &7463779709502689414
 GameObject:
   m_ObjectHideFlags: 0

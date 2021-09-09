@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 16
+  itemName: Elm Bow
+  min: 2
+  max: 6
+  value: 35

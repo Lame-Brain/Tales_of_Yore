@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 19
+  itemName: Buckler
+  min: 3
+  max: 2
+  value: 15
 --- !u!1 &6845079865358188928
 GameObject:
   m_ObjectHideFlags: 0

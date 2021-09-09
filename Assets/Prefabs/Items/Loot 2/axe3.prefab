@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 15
+  itemName: Battle Axe
+  min: 4
+  max: 8
+  value: 60
 --- !u!1 &7334614609083758135
 GameObject:
   m_ObjectHideFlags: 0

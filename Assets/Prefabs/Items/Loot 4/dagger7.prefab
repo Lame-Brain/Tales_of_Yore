@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 17
+  itemName: Stiletto
+  min: 1
+  max: 15
+  value: 450
 --- !u!1 &2396948961963772817
 GameObject:
   m_ObjectHideFlags: 0

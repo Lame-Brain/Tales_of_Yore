@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 14
+  itemName: Scale Mail
+  min: 0
+  max: 10
+  value: 250

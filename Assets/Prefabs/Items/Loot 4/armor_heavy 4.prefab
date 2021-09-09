@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 13
+  itemName: Full Plate
+  min: 10
+  max: 0
+  value: 250

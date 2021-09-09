@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 15
+  itemName: Destroyer Axe
+  min: 7
+  max: 12
+  value: 150

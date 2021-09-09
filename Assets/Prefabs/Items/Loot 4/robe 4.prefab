@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 18
+  itemName: Ornate Robe
+  min: 5
+  max: 5
+  value: 60

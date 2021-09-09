@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 18
+  itemName: Caster's Robe
+  min: 0
+  max: 2
+  value: 15

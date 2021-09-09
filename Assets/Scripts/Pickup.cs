@@ -7,9 +7,10 @@ public class Pickup : MonoBehaviour
     public enum type 
     { food, arrow, gold, bleed_pot, heal_pot, magic_pot, poison_pot, 
       gem_of_sight, ritual_bone, ritual_skull, ritual_book, ritual_candle,
-      amulet, armor_heavy, armor_light, axe, bow, dagger, robe, shield, staff, sword}
+      amulet, armor_heavy, armor_light, axe, bow, dagger, robe, shield, staff, sword, spell}
 
     public type itemType;
+    public string itemName;
     public int min, max, value;
 
     private void OnTriggerEnter2D(Collider2D collision)

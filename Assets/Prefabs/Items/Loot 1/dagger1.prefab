@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 17
+  itemName: Knife
+  min: 1
+  max: 2
+  value: 10
 --- !u!1 &4012975339166991883
 GameObject:
   m_ObjectHideFlags: 0

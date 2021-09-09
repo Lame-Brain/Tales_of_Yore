@@ -11,12 +11,13 @@ public class UI : MonoBehaviour
     public GameObject hpBar, mpBar, xpBar, foodBar;
     public TextMeshProUGUI Stats, numHP_pot, numMP_pot, num_Food, numPoison_pot, numBleed_pot, goldAmount, attack_string, ammo_string;
     public Image attack_icon;
-    public GameObject messagePanel, attack_text_panel, ammo_text_panel;
-    public TextMeshProUGUI panelMessage;
+    public GameObject messagePanel, attack_text_panel, ammo_text_panel, replaceMessagePanel;
+    public TextMeshProUGUI panelMessage, panelMessage_replace;
 
     private void Awake()
     {
         messagePanel.SetActive(false);
+        replaceMessagePanel.SetActive(false);
     }
 
     private void Update()
@@ -59,19 +60,28 @@ public class UI : MonoBehaviour
         candle.SetActive(GameManager.GAME.hasCandle);
 
         //Equipped Attack
-        attack_icon.sprite = GameManager.GAME.equipped_weapon.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
-        Debug.Log("THIS ->" + GameManager.GAME.equipped_weapon.transform.GetChild(0).name);
-        attack_string.text = "Atk: " + GameManager.GAME.equipped_weapon.GetComponent<Pickup>().min + "-" + GameManager.GAME.equipped_weapon.GetComponent<Pickup>().max;
-        if (GameManager.GAME.attkMode == 0 || GameManager.GAME.attkMode == 2) 
-            ammo_text_panel.SetActive(false);
-        else        
+        if (GameManager.GAME.attkMode == 0)
         {
+            attack_icon.sprite = GameManager.GAME.equipped_melee.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            attack_string.text = "Atk: " + GameManager.GAME.equipped_melee.GetComponent<Pickup>().min + "-" + GameManager.GAME.equipped_melee.GetComponent<Pickup>().max;
+            ammo_text_panel.SetActive(false);
+        }
+        if (GameManager.GAME.attkMode == 1 && GameManager.GAME.equipped_bow != null)
+        {
+            attack_icon.sprite = GameManager.GAME.equipped_bow.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            attack_string.text = "Atk: " + GameManager.GAME.equipped_bow.GetComponent<Pickup>().min + "-" + GameManager.GAME.equipped_bow.GetComponent<Pickup>().max;
             ammo_text_panel.SetActive(true);
             ammo_string.text = "Ammo: " + GameManager.GAME.num_arrows;
         }
+        if (GameManager.GAME.attkMode == 2 && GameManager.GAME.equipped_spell != null)
+        {
+            attack_icon.sprite = GameManager.GAME.equipped_spell.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+            attack_string.text = "Atk: " + GameManager.GAME.equipped_spell.GetComponent<Pickup>().min + "-" + GameManager.GAME.equipped_spell.GetComponent<Pickup>().max;
+            ammo_text_panel.SetActive(false);
+        }
 
         //Input for when message panel is active
-        if (Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
+        if (Input.GetButtonUp("Jump"))
         {
             if (messagePanel.activeSelf) CloseMessage();
         }
@@ -84,9 +94,17 @@ public class UI : MonoBehaviour
         GameManager.PAUSED = true;
     }
 
+    public void OpenReplaceMessage(string s)
+    {
+        replaceMessagePanel.SetActive(true);
+        panelMessage_replace.text = s;
+        GameManager.PAUSED = true;
+    }
+
     public void CloseMessage()
     {
         messagePanel.SetActive(false);
+        replaceMessagePanel.SetActive(false);
         GameManager.PAUSED = false;
     }
 

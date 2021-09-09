@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 21
+  itemName: Rapier
+  min: 3
+  max: 8
+  value: 60
 --- !u!1 &7590270720721026582
 GameObject:
   m_ObjectHideFlags: 0

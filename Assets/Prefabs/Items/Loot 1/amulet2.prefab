@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 12
+  itemName: Gold Amulet
+  min: 3
+  max: 4
+  value: 60

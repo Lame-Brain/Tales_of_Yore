@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 17
+  itemName: Hex Dagger
+  min: 6
+  max: 12
+  value: 326
 --- !u!1 &3040853442949470420
 GameObject:
   m_ObjectHideFlags: 0

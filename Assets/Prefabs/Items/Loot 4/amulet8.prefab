@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 12
+  itemName: Diamond Amulet
+  min: 0
+  max: 15
+  value: 750
 --- !u!1 &6523774025592245071
 GameObject:
   m_ObjectHideFlags: 0

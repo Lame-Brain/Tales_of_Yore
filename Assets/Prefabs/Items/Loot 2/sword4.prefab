@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 21
+  itemName: Bastard Sword
+  min: 1
+  max: 10
+  value: 90

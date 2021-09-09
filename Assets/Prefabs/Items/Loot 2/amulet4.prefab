@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 12
+  itemName: Ruby Amulet
+  min: 0
+  max: 7
+  value: 120
 --- !u!1 &5361943567905558450
 GameObject:
   m_ObjectHideFlags: 0

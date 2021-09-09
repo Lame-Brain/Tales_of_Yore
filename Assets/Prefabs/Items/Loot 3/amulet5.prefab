@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 12
+  itemName: Holy Amulet
+  min: 0
+  max: 9
+  value: 170

@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 19
+  itemName: Targe
+  min: 4
+  max: 3
+  value: 30
 --- !u!1 &4092118796888083289
 GameObject:
   m_ObjectHideFlags: 0

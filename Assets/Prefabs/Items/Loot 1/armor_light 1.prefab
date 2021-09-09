@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 14
+  itemName: Studded Leather
+  min: 0
+  max: 5
+  value: 50

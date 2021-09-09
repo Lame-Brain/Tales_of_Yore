@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 18
+  itemName: Master Robe
+  min: 0
+  max: 6
+  value: 45

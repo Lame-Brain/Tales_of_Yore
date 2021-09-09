@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 12
+  itemName: Sapphire Amulet
+  min: 0
+  max: 13
+  value: 500
 --- !u!1 &9212211779585868582
 GameObject:
   m_ObjectHideFlags: 0

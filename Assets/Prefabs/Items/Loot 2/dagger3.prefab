@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 17
+  itemName: Iron Dagger
+  min: 2
+  max: 4
+  value: 55
 --- !u!1 &2396948961963772817
 GameObject:
   m_ObjectHideFlags: 0

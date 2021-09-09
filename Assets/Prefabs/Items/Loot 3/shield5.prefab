@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 19
+  itemName: Aspis
+  min: 9
+  max: 0
+  value: 85

@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 14
+  itemName: Ring Mail
+  min: 0
+  max: 8
+  value: 125

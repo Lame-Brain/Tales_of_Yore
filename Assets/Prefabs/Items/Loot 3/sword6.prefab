@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 21
+  itemName: Broad Sword
+  min: 2
+  max: 12
+  value: 300
 --- !u!1 &9132970746720871592
 GameObject:
   m_ObjectHideFlags: 0

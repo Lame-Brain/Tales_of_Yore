@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 12
+  itemName: Silver Amulet
+  min: 2
+  max: 3
+  value: 30
 --- !u!1 &4098152057565053961
 GameObject:
   m_ObjectHideFlags: 0

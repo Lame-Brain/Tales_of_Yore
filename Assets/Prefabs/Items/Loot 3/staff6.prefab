@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 20
+  itemName: Warlock Walking Stick
+  min: 1
+  max: 7
+  value: 35
 --- !u!1 &2150261260409338884
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 21
+  itemName: Claymore
+  min: 4
+  max: 15
+  value: 500
 --- !u!1 &3674205247519300966
 GameObject:
   m_ObjectHideFlags: 0

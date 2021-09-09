@@ -174,3 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 14
+  itemName: Chain Mail
+  min: 0
+  max: 6
+  value: 75

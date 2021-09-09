@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 16
+  itemName: Great Bow
+  min: 2
+  max: 16
+  value: 500
 --- !u!1 &6924192016494413912
 GameObject:
   m_ObjectHideFlags: 0

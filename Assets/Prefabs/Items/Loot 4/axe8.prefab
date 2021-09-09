@@ -72,6 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 15
+  itemName: Great Axe
+  min: 8
+  max: 14
+  value: 500
 --- !u!1 &3320369064533773390
 GameObject:
   m_ObjectHideFlags: 0
