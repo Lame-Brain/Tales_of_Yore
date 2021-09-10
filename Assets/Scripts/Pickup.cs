@@ -11,7 +11,7 @@ public class Pickup : MonoBehaviour
 
     public type itemType;
     public string itemName;
-    public int min, max, value;
+    public int min, max, value, cost;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

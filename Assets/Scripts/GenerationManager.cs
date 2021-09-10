@@ -87,9 +87,7 @@ public class GenerationManager : MonoBehaviour
             for(int _x = 0; _x < mapWidth; _x++)
             {
                 if (!map[_x, _y]) continue;
-
-                Debug.Log("Made it past the filter");
-
+                                
                 GameObject go = Instantiate(roomPrefab, new Vector3(_x, _y, 0) * 15, Quaternion.identity);
                 Room room = go.GetComponent<Room>();
 
@@ -113,8 +111,7 @@ public class GenerationManager : MonoBehaviour
                     room.westWall.SetActive(false);
                     room.westPass.SetActive(true);
                 }
-                roomObjects.Add(room);
-                Debug.Log("added " + room.name);
+                roomObjects.Add(room);                
             }
 
         //Randomize the Tiles

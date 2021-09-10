@@ -49,6 +49,7 @@ MonoBehaviour:
   min: 10
   max: 50
   value: 666
+  cost: 65
 --- !u!1 &6873274427596223783
 GameObject:
   m_ObjectHideFlags: 0

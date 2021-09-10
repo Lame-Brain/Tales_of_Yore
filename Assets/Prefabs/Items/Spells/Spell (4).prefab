@@ -151,3 +151,4 @@ MonoBehaviour:
   min: -10
   max: 10
   value: 200
+  cost: 20

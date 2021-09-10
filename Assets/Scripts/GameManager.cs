@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager GAME;
     public static int MAPWIDTH, MAPHEIGHT;
-    public static bool PAUSED;
+    public static bool PAUSED, ENDTURN;
 
     public UI UI;
     public GenerationManager GenManager;
@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public int ForestLevel, playerLevel, numHP_pot, numMP_pot, num_Food, numPoison_pot, num_Bleed_pot, num_arrows, gold;
     public float playerHP, playerMP, playerFood, maxHP, maxMP, maxFood, playerXP, playerXPNNL, playerXPmod;
     public GameObject equipped_melee, equipped_bow, equipped_spell, equipped_armor, equipped_amulet, equipped_shield, focus_item;
+    public Transform Pool;
+
+    //[HideInInspector] 
+    public List<Enemy> MonsterList = new List<Enemy>();
+    [HideInInspector] public int EnemiesDoneWithTurn;
 
     private void Awake()
     {
@@ -116,5 +121,21 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(WaitforLevelToLoadToLoadNextLevel());
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         UI.CloseMessage();
+    }
+
+    public void PlayerTurnEnd()
+    {
+        ENDTURN = true;
+        EnemiesDoneWithTurn = 0;
+        foreach (Enemy _enemy in MonsterList) _enemy.EnemyTurn();
+    }
+
+    public void EnemyTurnEnd()
+    {
+        EnemiesDoneWithTurn++;
+        if(EnemiesDoneWithTurn >= MonsterList.Count)
+        {
+            ENDTURN = false;
+        }
     }
 }

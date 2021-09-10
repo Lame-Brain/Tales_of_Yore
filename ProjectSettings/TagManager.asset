@@ -12,6 +12,9 @@ TagManager:
   - Ground
   - Chest
   - Sign
+  - Pool
+  - arrow
+  - spell
   layers:
   - Default
   - TransparentFX

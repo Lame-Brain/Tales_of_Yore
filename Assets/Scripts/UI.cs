@@ -112,7 +112,7 @@ public class UI : MonoBehaviour
         messagePanel.SetActive(false);
         replaceMessagePanel.SetActive(false);
         travelMessagePanel.SetActive(false);
-        GameManager.PAUSED = false;
+        GameManager.PAUSED = false;        
     }
 
     public int CalculateAC()

@@ -6,8 +6,7 @@ public class Player : MonoBehaviour
 {
 
     public bool canMove;
-
-
+        
     public LayerMask moveLayerMask;
 
     // Start is called before the first frame update
@@ -21,13 +20,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canMove = !GameManager.PAUSED;
+        if (GameManager.PAUSED || GameManager.ENDTURN)
+            canMove = false;
+        else
+            canMove = true;
+        
+
         if (canMove)
         {
-            if (Input.GetButtonUp("UpArrow")) Move(Vector2.up);
-            if (Input.GetButtonUp("RightArrow")) Move(Vector2.right);
-            if (Input.GetButtonUp("DownArrow")) Move(Vector2.down);
-            if (Input.GetButtonUp("LeftArrow")) Move(Vector2.left);
+            if (Input.GetButtonDown("UpArrow")) Move(Vector2.up);
+            if (Input.GetButtonDown("RightArrow")) Move(Vector2.right);
+            if (Input.GetButtonDown("DownArrow")) Move(Vector2.down);
+            if (Input.GetButtonDown("LeftArrow")) Move(Vector2.left);
         }
     }
 
@@ -55,5 +59,69 @@ public class Player : MonoBehaviour
             hit.collider.GetComponent<Chest>().PopTheChest();
         }
 
+        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+        {
+            hit.collider.GetComponent<Enemy>().AttackEnemy(GameManager.GAME.equipped_melee.GetComponent<Pickup>());
+        }
+
+        GameManager.GAME.PlayerTurnEnd();
+    }
+
+    public void PlayerClickedOnMonster(GameObject monster)
+    {        
+        if (canMove && GameManager.GAME.attkMode == 1 && GameManager.GAME.num_arrows > 0)
+        {
+            GameManager.GAME.num_arrows--;
+            for (int a = 0; a < GameManager.GAME.Pool.Find("ArrowPool").childCount; a++)
+                if (!GameManager.GAME.Pool.Find("ArrowPool").GetChild(a).GetComponent<Projectile>().active)
+                {
+                    GameManager.GAME.Pool.Find("ArrowPool").GetChild(a).transform.position = this.transform.position;
+
+                    Vector3 dir = monster.transform.position - transform.position;
+                    float angle = (Mathf.Atan2(dir.y + Random.Range(-1.5f, 1.5f), dir.x + Random.Range(-1.5f, 1.5f)) * Mathf.Rad2Deg) - 90f;
+                    GameManager.GAME.Pool.Find("ArrowPool").GetChild(a).transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+                    GameManager.GAME.Pool.Find("ArrowPool").GetChild(a).GetComponent<Projectile>().FireProjectile();
+                    return;
+                }
+        }
+        //Spell Attack
+        if (canMove && GameManager.GAME.attkMode == 2 && ThereIsEnoughMana(GameManager.GAME.equipped_spell.GetComponent<Pickup>()))
+        {
+            GameManager.GAME.playerMP -= GameManager.GAME.equipped_spell.GetComponent<Pickup>().cost;
+            if (GameManager.GAME.playerMP < 0) GameManager.GAME.playerMP = 0;
+
+            GameObject _obj = null;
+            if (GameManager.GAME.equipped_spell.GetComponent<Pickup>().itemName == "Mage Blast") _obj = GameManager.GAME.Pool.Find("MageBlastPool").gameObject;
+            if (GameManager.GAME.equipped_spell.GetComponent<Pickup>().itemName == "Fire Bolt") _obj = GameManager.GAME.Pool.Find("FireBoltPool").gameObject;
+            if (GameManager.GAME.equipped_spell.GetComponent<Pickup>().itemName == "Frost Blast") _obj = GameManager.GAME.Pool.Find("FrostBlastPool").gameObject;
+            if (GameManager.GAME.equipped_spell.GetComponent<Pickup>().itemName == "Poison Splash") _obj = GameManager.GAME.Pool.Find("PoisonSplashPool").gameObject;
+            if (GameManager.GAME.equipped_spell.GetComponent<Pickup>().itemName == "Mage Missile") _obj = GameManager.GAME.Pool.Find("MageMissilePool").gameObject;
+            if (GameManager.GAME.equipped_spell.GetComponent<Pickup>().itemName == "Fireball") _obj = GameManager.GAME.Pool.Find("FireballPool").gameObject;
+            if (GameManager.GAME.equipped_spell.GetComponent<Pickup>().itemName == "Blizzard") _obj = GameManager.GAME.Pool.Find("BlizzardPool").gameObject;
+            if (GameManager.GAME.equipped_spell.GetComponent<Pickup>().itemName == "Death Bolt") _obj = GameManager.GAME.Pool.Find("DeathTouchPool").gameObject;
+
+
+            for (int a = 0; a < _obj.transform.childCount; a++)
+                if (!_obj.transform.GetChild(a).GetComponent<Projectile>().active)
+                {
+                    _obj.transform.GetChild(a).transform.position = this.transform.position;
+
+                    Vector3 dir = monster.transform.position - transform.position;
+                    float angle = (Mathf.Atan2(dir.y + Random.Range(-1.5f, 1.5f), dir.x + Random.Range(-1.5f, 1.5f)) * Mathf.Rad2Deg) - 90f;
+                    _obj.transform.GetChild(a).transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+                    _obj.transform.GetChild(a).GetComponent<Projectile>().FireProjectile();
+                    return;
+                }
+        }
+    }
+
+    private bool ThereIsEnoughMana(Pickup _spell)
+    {
+        //Debug.Log("spell costs " + _spell.cost + " and I have " + GameManager.GAME.playerMP);
+        bool _result = false; 
+        if (_spell != null && _spell.cost <= GameManager.GAME.playerMP) _result = true;
+        return _result;
     }
 }
