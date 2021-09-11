@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
                     GameManager.GAME.Pool.Find("ArrowPool").GetChild(a).transform.position = this.transform.position;
 
                     Vector3 dir = monster.transform.position - transform.position;
-                    float angle = (Mathf.Atan2(dir.y + Random.Range(-1.5f, 1.5f), dir.x + Random.Range(-1.5f, 1.5f)) * Mathf.Rad2Deg) - 90f;
+                    float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) - 90f;
                     GameManager.GAME.Pool.Find("ArrowPool").GetChild(a).transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
                     GameManager.GAME.Pool.Find("ArrowPool").GetChild(a).GetComponent<Projectile>().FireProjectile();
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
                     _obj.transform.GetChild(a).transform.position = this.transform.position;
 
                     Vector3 dir = monster.transform.position - transform.position;
-                    float angle = (Mathf.Atan2(dir.y + Random.Range(-1.5f, 1.5f), dir.x + Random.Range(-1.5f, 1.5f)) * Mathf.Rad2Deg) - 90f;
+                    float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) - 90f;
                     _obj.transform.GetChild(a).transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
                     _obj.transform.GetChild(a).GetComponent<Projectile>().FireProjectile();

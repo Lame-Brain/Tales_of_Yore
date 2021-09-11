@@ -127,7 +127,11 @@ public class GameManager : MonoBehaviour
     {
         ENDTURN = true;
         EnemiesDoneWithTurn = 0;
-        foreach (Enemy _enemy in MonsterList) _enemy.EnemyTurn();
+        if (MonsterList.Count > 0) { }
+            //foreach (GameObject _enemy in MonsterList) _enemy.EnemyTurn();
+        else
+            ENDTURN = false;
+
     }
 
     public void EnemyTurnEnd()
